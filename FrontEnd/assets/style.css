@@ -332,9 +332,7 @@ i {
 	display: flex;
 	flex-wrap: wrap;
 	width: fit-content;
-	justify-content: space-between;
-	padding: 35px;
-	
+	padding: 35px;	
 }
 
 .supression {
@@ -348,6 +346,7 @@ i {
 
 .modal-figure {
 	position: relative;
+	margin: 3px;
 }
 
 .poubelle-icone {

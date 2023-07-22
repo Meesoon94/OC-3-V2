@@ -74,7 +74,6 @@ function creerFiltres() {
                 boutonFiltre.textContent = nomFiltre.name
                 const categorieId = nomFiltre.id
                 console.log(categorieId)
-                boutonFiltre.setAttribute('data-id', categorieId)
                 filtreProjet.appendChild(boutonFiltre)
 
                 // Filtrer par catégorie
@@ -233,8 +232,6 @@ function supprimerProjet(id) {
         // Suppression réussie, faire les traitements nécessaires (par exemple, masquer le projet de l'interface)
         let projet = document.querySelector(`[data-id="${id}"]`)
         console.log(projet)
-        afficherProjetsModal(listeProjets)
-        afficherProjets(listeProjets)
         alert("Le projet a été supprimé avec succès.")
         chargerProjets()
       } else {
@@ -253,14 +250,9 @@ function supprimerProjet(id) {
 iconesPoubelle.forEach((poubelle, index) => {
     poubelle.addEventListener('click', (event) => {
       event.stopPropagation()
-      // Récupérer l'élément figure parent de l'icône poubelle
-      const figureElement = poubelle.closest('.modal-figure')
-      // Récupérer l'ID du projet à partir de l'attribut personnalisé
       const projetId = figureElement.getAttribute('data-id')
       console.log(projetId)
-      supprimerProjet(projetId, event)
-      // Masquer l'élément du projet dans l'interface utilisateur
-      figureElement.style.display = 'none'
+      supprimerProjet(projetId)
     })
   })
   
